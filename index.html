@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>clock</title>
     <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    height: 100vh;
+      }
       .container {
         /* border: 2px solid red; */
         height: 60vh;
         width: 60vh;
         background-image: url(clock.png);
         background-size: 100%;
-        margin: auto;
+       
         position: relative;
+        background-repeat: no-repeat;
+        border-radius: 50%;
+       
       }
       #hour {
        
@@ -54,14 +64,18 @@
     </style>
   </head>
   <body>
+    <h2 id="numtime"> </h2>
     <div class="container">
       <div id="hour"></div>
       <div id="min"></div>
       <div id="sec"></div>
     </div>
+    <h1>Clock</h1>
 
     
     <script>
+      
+    
      setInterval(() => {
          d = new Date();
          htime = d.getHours();
@@ -74,8 +88,9 @@
          hour.style.transform = `rotate(${hrotation}deg)`;
          min.style.transform = `rotate(${mrotation}deg)`;
          sec.style.transform = `rotate(${srotation}deg)`;
+         var numtime = document.getElementById("numtime")
+   numtime.innerHTML = "Time"+" "+htime +":" + mtime + ":"+ stime;
      }, 1000);
-
-    </script>
+  </script>
   </body>
 </html>
